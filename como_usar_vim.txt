@@ -1,0 +1,123 @@
+O que é vim??
+Vim é um programa de edição de texto conhecido por permitir que o usuário crie e edite textos sem tirar as mãos do teclado. Isso proporciona uma edição de texto rápida e eficiente, muito caprichado por programadores e pessoas da área de tecnologia. Extensões em diversos programas também permitem a utilizxação de controles similares ao do vim, fazendo com que o aprendizado desta tecnologia não se limite apenas ao campo do próprio vim.
+
+Para checar se o seu computador tem o vim, escreva "vi" ou "vim" no console. ele vai mostrar a versão instalada.
+O seu computador usará o comando "vi" ou "vim" para abrir o editor dependendo de como estiver configurado no seu computador.
+
+o vim funciona alternando entre diferentes modos
+MODO NORMAL
+um modo utilizado para se locomover pelo documento, executar comandos e mudar de modo.
+Para executar comandos no vim estando no modo normal usa-se o prefixo ":" seguido do comando (exemplo :q para sair do vim)
+é possivel executar comandos do terminal usando o prefixo "!" seguido do comando do terminal (exemplo !ls para usar o comando list)
+OBS: lembre-se que esses comandos funcionam apenas no modo normal.
+Para voltar ao modo normal, aperte a tecla "Esc".
+Uma lista de comandos e atalhos para o modo normal podem ser encontrados no final deste texto.
+
+
+MODO INSERT
+Apertando a tecla "i" a partir do modo normal é possivel entrar no modo insert ou modo de inserção. É com esse modo que você poderá inserir texto no arquivo.
+neste modo, qualquer tecla que for apertada será escrita como texto e não será usada como um comando. para sair do modo de inserção e voltar ao modo normal é necessário apertar a tecla "esc" (situada no topo do teclado. algumas pessoas até gostam de colocar a função do esc na tecla "caps lock" para não ter que mover tanto a mão).
+
+Além da tecla "i", existem outras teclas que também entram no modo insert a partir do modo normal. São elas as taclas "a", "o", "I", "A" e "O" (essas três ultimas sendo "i", "a" e "o" só que maiúsculas. Para escreve-las basta segurar a tecla "shift" e apertar uma das letras)
+As funções dessas teclas são:
+
+i -> entra no modo insert com o cursor onde ele estiver 
+a -> entra no modo insert com o cursor um espaço para frente de onde o cursor estava. (não sei se é isso mesmo, mas "a" de after)
+o -> entra no modo insert com o cursor criando uma nova linha depois da atual ("o" de open new line)
+I -> entra no modo insert com o cursor no começo da linha atual
+A -> o contário de "I", entra no modo insert no final da linha atual
+O -> o contrário de "o", entra no modo insert criando uma nova linha acima da atual
+
+Não se preocupe tanto em decorar ou entender logo de cara o que cada uma dessas teclas faz, na prática é bem mais simples do que parece.
+
+
+MODO VISUAL
+O modo visual seleciona o texto, que nem clickar e arrastar o mouse.
+
+
+
+
+É possivel configurar o vim de diversas formas. As configurações do vim ficam em um arquivo chamado .vimrc que se encontra na pasta do usuário (o caminho "~/.vimrc" ou "/home/seuusuario/.vimrc". "/home/ian/.vimrc" no meu caso). Basta escrever "vi ~/.vimrc" ou "vi /home/seuusuario/.vimrc" no console para editar o arquivo. Se não existir esse arquivo, o comando "vi ~/.vimrc" já criará um novo. Para que as suas configurações fiquem salvas, é necessário escreve-las neste arquivo.
+
+set number -> numera as linhas do arquivo
+set relativenumber -> numera as linhas do arquivo de forma relativa. mais útil do que parece.
+
+
+
+
+-----------Comandos básicos modo normal:  --------------------------------------------------------------
+
+
+SAIR DO VIM -> escreva :q e aperte enter (q de quit)
+
+SAIR DO VIM DESCARTANDO ALTERAÇÕES -> :q!
+
+SALVAR -> :w (w de write)
+
+SALVAR E SAIR -> :wq
+
+MOVER O CURSOR -> h (esquerda) j(baixo) k(cima) l(direita) ou as setas do teclado
+
+MOVER O CURSOR N VEZES -> é possível mover varias vezes de uma vez escrevendo um número antes de apertar a direção que você quer ir (por exemplo, se vc apertar 9 e em seguida o "j" ou a seta pra baixo o cursor vai descer 9 espaços)
+(vários comandos permitem essa interação com um número antes, não apenas as setas)
+
+MOVER ENTRE PALAVRAS -> w(para ir para frente) b(para ir para trás. b de back) e(para ir pro final de uma palavra) (as versões minúsculas consideram alguns caracteres especiais como espaços entre as palavras, já "W" e "B" consideram apenas espaços) (o b e w podem ser compinados com o d para deletar uma palavra. Sobre deletar uma palavra usando esse método, é importante notar que se o comando for feito no meio de uma palavra, a palavra será deletada pela metade. Para deletar a palavra inteira, é necessário usar "diw/ dib" que significaria "delete in a word".)(Também é possível usar o "c" em conjunto com o "b", o "w" e o "e" para mudar uma palavra. Da mesma forma, "ci + w / b" é change in a word.)
+
+MOVER PARA O FINAL DA LINHA -> $
+
+MOVER PARA O COMEÇO DA LINHA -> 0
+
+ENTRAR NO MODO INSERT -> i (existem outras teclas que entram no modo insert, como a tecla "a" ou a tecla "o". As diferenças entre elas serão citadas mais tarde)
+
+ENTRAR NO MODO VISUAL -> v (o modo visual seleciona o texto, que nem clickar e arrastar o mouse.)
+
+DELETAR UMA LETRA OU PALAVRA -> d
+
+DELETAR A LINHA TODA -> dd
+
+DELETAR O RESTRO DA LINHA -> D (tudo o que estiver depois do cursor naquela linha será deltado)
+
+COPIAR -> y (y de yanking)
+
+COPIAR A LINHA TODA -> yy ou Y
+
+COLAR -> p (p de paste) (o "P" maiúsculo cola na outra direção, digamos assim. Se uma quebra de linha tiver sido copiada, o "p" botaria a copia abaixo da atual, enquanto o "P" botaria acima. De forma parecida, se uma quebra de linha não tiver sido copiada, o "p" colaria o texto para a frente do cursor, enquanto o "P" colaria para trás do cursor. Bem parecido com o "o" e o "O".)
+
+UNDO -> u (a mesma função do ctrl + z, desfazer) 
+
+REDO ->  (desfaz o desfeito)
+
+MUDAR -> c (c de change) (deleta a parte selecionada e já entra no modo insert)
+
+MUDAR TODA A LINHA -> cc (deleta a linha e já entra no modo insert)
+
+MUDAR O RESTO DA LINHA -> C (o que estiver depois do cursor naquela linha vai ser deletado e você mudará para o modo insert)
+
+DENTRO DE CARACTERES ESPECIAIS -> É possível combinar os outros comandos com o "i" de inner e com caracteres como " ' ( para fazer as operações dentro desses caracteres. Por exemplo, o comando ci( executaria o comando change em tudo o que estiver dentro dos parênteses e o comando yi" executaria o comando de yanking (copiar) em tudo o que estiver dentro das aspas.
+
+SUBSTITUIR UMA LETRA -> r (r de replace)
+
+PARA PULAR DE UMA { ATÉ A OUTRA -> % (Também é possível combinar com outros comandos. Por exemplo, d% deletaria tudo o que tem entre as chaves e as chaves)
+
+PARA IR PARA UM PONTO EXPECÍFICO NA MESMA LINHA -> t<caractere que você quer ir até>, de to, te leva uma posição antes do caractere e f<caractere que você quer ir até>, de find, deixa o cursor em cima do caractere. As versões maiúsculas dessas letras fazem a mesma coisa só que pra trás. Por exemplo, na linha escrita " /* this is a coment and i am very proud of it */ ", com o cursor no primeiro "t", se for usado o comando dt* será deletado tudo até o *. 
+
+PARA PULAR PARA O INICIO DO ARQUIVO -> gg
+
+PARA PULAR PARA O FIM DO ARQUIVO -> G
+
+PARA PULAR PARA UMA LINHA ESPECIFICA -> <número da linha>G ou :<número da linha>. ex 22G ou :22
+
+
+----------- Alguns comandos avançados modo normal -------------------------------------------------------------------------------------------------------------------------------------------------
+
+INDENTAR -> >> (para indentar para a direita) ou << (para indentar para a esquerda)
+
+AUTO INDENTAR -> ==
+
+ENTRAR NO MODO VISUAL DE LINHAS -> V em vez de selecionar como um mouse, seleciona várias linhas ao mesmo tempo.
+
+PROCURAR NO ARQUIVO -> /<palavra que você quer procurar> (n de next para ir para a próxima ocorrência da palavra e N para ir para a ocorrência anterior). ?<palavra que você quer procurar> procura pra cima.
+
+EDITAR VÁRIAS OCORRÊNCIAS DE UMA MESMA PALAVRA DE UMA VEZ -> :%s/nomeDoQueSeraSubstituido/novoNome/g (a porcentágem é o elemento que fala pro comando executar em todo o documento. Se for usar esse comando em parte do documento, selecione a parte desejada e não escreva a porcentágem. o s é de substitute.)
+
+REPETIR O ÚLTIMO COMANDO -> .
